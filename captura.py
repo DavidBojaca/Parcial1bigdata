@@ -24,5 +24,5 @@ def f():
             str(dt.find_all('span')[1].text[:1]) + "," + \
             str(dt.find_all('span')[2].text) + \
             "\n"
-    boto3.client('s3').put_object(Body=text, Bucket='capturadatoscasas', 
+    boto3.client('s3').put_object(Body=text, Bucket='capturadatoscasas',
                                   Key=str(nombre+".csv"))
