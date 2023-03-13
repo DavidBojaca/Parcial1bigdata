@@ -37,13 +37,6 @@ jobs:
           pip install -r requirements.txt
           pip list
           pytest
-      
-      - name: flake8
-        run: |
-          source env/bin/activate
-          flake8 lectura.py
-          flake8 captura.py
-          flake8 test_lectura.py
           
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -59,3 +52,10 @@ jobs:
           pytest
           zappa update dev
           zappa update dev2 
+          
+      - name: flake8
+        run: |
+          source env/bin/activate
+          flake8 lectura.py
+          flake8 captura.py
+          flake8 test_lectura.py
