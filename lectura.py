@@ -28,6 +28,3 @@ def f():
     s3.put_object(Body=html,
                   Bucket='lecturadatoscasas',
                   Key=str(fecha_actual)+".html")
-    
-    
-    
