@@ -22,10 +22,8 @@ def get_date():
 def f():
     fecha_actual = get_date()
     url = get_url()
-    
     with urlopen(url) as response:
         html = response.read()
-        
     s3 = get_boto()
     s3.put_object(Body=html,
                   Bucket='lecturadatoscasas',
