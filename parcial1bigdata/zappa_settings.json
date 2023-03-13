@@ -1,0 +1,39 @@
+{
+    "dev": {
+        "app_function": "lectura.f",
+        "keep_warm": false,
+        "role_name": "LabRole",
+        "manage_roles": false,
+        "apigateway_enabled": false,
+        "aws_region": "us-east-1",
+        "project_name": "parcial1bigdata",
+        "runtime": "python3.8",
+        "s3_bucket": "lecturadatoscasas",
+        "events": [{
+           "function": "lectura.f", 
+           "expression": "cron(42 14 * * ? *)" 
+       }]
+    },
+    
+    "dev2": {
+        "app_function": "captura.f",
+        "keep_warm": false,
+        "role_name": "LabRole",
+        "manage_roles": false,
+        "apigateway_enabled": false,
+        "aws_region": "us-east-1",
+        "project_name": "parcial1bigdata",
+        "runtime": "python3.8",
+        "s3_bucket": "capturadatoscasas",
+        "events": [{
+            "function": "captura.f",
+            "event_source": {
+                  "arn":  "arn:aws:s3:::lecturadatoscasas",
+                  "events": [
+                    "s3:ObjectCreated:*" 
+                  ]
+               }
+            }]
+    }
+    
+}
