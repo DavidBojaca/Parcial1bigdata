@@ -16,7 +16,7 @@ def f():
     fecha_actual = datetime.today().strftime('%Y-%m-%d')
     text = "FechaDescarga, Info, Valor, NumHabitaciones, NumBanos, mts2\n"
     for i in range(len(data_casa)):
-        dat= data_casa[i].find_all('div', class_='listing-card__properties')[0]
+        dat = data_casa[i].find_all('div', class_='listing-card__properties')[0]
         text = text + fecha_actual + "," + \
             str(data_titulo[i].text) + "," + \
             str(data_precio[i].text) + "," + \
@@ -24,5 +24,5 @@ def f():
             str(dat.find_all('span')[1].text[:1]) + "," + \
             str(dat.find_all('span')[2].text) + \
             "\n"
-    boto3.client('s3').put_object(Body=text,Bucket='capturadatoscasas',
+    boto3.client('s3').put_object(Body=text,Bucket='capturadatoscasas',    
                                   Key=str(nombre+".csv"))
