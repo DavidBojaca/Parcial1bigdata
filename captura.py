@@ -39,4 +39,5 @@ def f():
             "\n"
             
     #se suve en formato csv al segundo bucket
-    boto3.client('s3').put_object(Body=text, Bucket='capturadatoscasas',Key=str(nombre+".csv"))
+    boto3.client('s3').put_object(Body=text,Bucket='capturadatoscasas',
+                                  Key=str(nombre+".csv"))

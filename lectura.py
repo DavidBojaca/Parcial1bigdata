@@ -27,7 +27,9 @@ def f():
         html = response.read()
         
     s3 = get_boto()
-    s3.put_object(Body=html,Bucket='lecturadatoscasas',Key=str(fecha_actual)+".html")
+    s3.put_object(Body=html,
+                  Bucket='lecturadatoscasas',
+                  Key=str(fecha_actual)+".html")
     
     
     
