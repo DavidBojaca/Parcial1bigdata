@@ -58,4 +58,4 @@ jobs:
           source env/bin/activate
           pytest
           zappa update dev
-          zappa update dev2
+          zappa update dev2 
