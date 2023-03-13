@@ -2,6 +2,7 @@ import boto3
 from datetime import datetime
 from lectura import get_url, get_boto, get_date
 
+
 def test_get_url():
     assert get_url() == "https://casas.mitula.com.co/searchRE" + \
                         "/nivel1-Cundinamarca/nivel2-Bogot%C3%A1/" + \

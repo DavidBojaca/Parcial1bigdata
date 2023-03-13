@@ -3,7 +3,6 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 
 
-
 def f():
     nombre = str(datetime.today().strftime('%Y-%m-%d'))
     s3 = boto3.resource('s3')
@@ -17,13 +16,13 @@ def f():
     fecha_actual = datetime.today().strftime('%Y-%m-%d')
     text = "FechaDescarga, Info, Valor, NumHabitaciones, NumBanos, mts2\n"
     for i in range(len(data_casa)):
-        datos = data_casa[i].find_all('div', class_='listing-card__properties')[0]
+        dat= data_casa[i].find_all('div', class_='listing-card__properties')[0]
         text = text + fecha_actual + "," + \
             str(data_titulo[i].text) + "," + \
             str(data_precio[i].text) + "," + \
             str(data_casa[i]['data-rooms']) + "," + \
-            str(datos.find_all('span')[1].text[:1]) + "," + \
-            str(datos.find_all('span')[2].text) + \
+            str(dat.find_all('span')[1].text[:1]) + "," + \
+            str(dat.find_all('span')[2].text) + \
             "\n"
     boto3.client('s3').put_object(Body=text,Bucket='capturadatoscasas',
                                   Key=str(nombre+".csv"))
