@@ -41,9 +41,9 @@ jobs:
       - name: flake8
         run: |
           source env/bin/activate
-          flake8 leer_archivo.py
-          flake8 recibir_archivo.py
-          flake8 test_leer_archivo.py
+          flake8 lectura.py
+          flake8 captura.py
+          flake8 test_lectura.py
           
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
