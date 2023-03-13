@@ -22,4 +22,3 @@ def test_get_boto(mocker):
     boto3.client.return_value = s3_mock
     s3 = get_boto()
     assert s3 == s3_mock
-    
